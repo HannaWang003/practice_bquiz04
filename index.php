@@ -36,8 +36,16 @@ include_once "./api/db.php";
                                         <a href="?do=login">會員登入</a> |
                                 <?php
                                 }
+                                if (isset($_SESSION['admin'])) {
                                 ?>
-                                <a href="?do=admin">管理登入</a>
+                                        <a href="back.php">返回管理</a>
+                                <?php
+                                } else {
+                                ?>
+                                        <a href="?do=admin">管理登入</a>
+                                <?php
+                                }
+                                ?>
                         </div>
                 </div>
                 <marquee behavior="" direction="">年終特賣會開跑了 &nbsp; 情人節特惠活動</marquee>
