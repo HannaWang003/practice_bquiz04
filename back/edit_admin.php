@@ -18,12 +18,10 @@ $row['pr'] = unserialize($row['pr']);
         <tr>
             <th class="tt">權限</th>
             <td class="pp">
-                <input type="checkbox" value="1" name="pr[]"
-                    <?= (in_array(1, $row['pr'])) ? "checked" : "" ?>>商品分類與管理<br>
+                <input type="checkbox" value="1" name="pr[]" <?= (in_array(1, $row['pr'])) ? "checked" : "" ?>>商品分類與管理<br>
                 <input type="checkbox" value="2" name="pr[]" <?= (in_array(2, $row['pr'])) ? "checked" : "" ?>>訂單管理<br>
                 <input type="checkbox" value="3" name="pr[]" <?= (in_array(3, $row['pr'])) ? "checked" : "" ?>>會員管理<br>
-                <input type="checkbox" value="4" name="pr[]"
-                    <?= (in_array(4, $row['pr'])) ? "checked" : "" ?>>頁尾版權區管理<br>
+                <input type="checkbox" value="4" name="pr[]" <?= (in_array(4, $row['pr'])) ? "checked" : "" ?>>頁尾版權區管理<br>
                 <input type="checkbox" value="5" name="pr[]" <?= (in_array(5, $row['pr'])) ? "checked" : "" ?>>最新消息管理
             </td>
         </tr>

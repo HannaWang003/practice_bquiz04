@@ -1,8 +1,8 @@
 <h2 class="ct">會員註冊</h2>
 <style>
-th {
-    width: 40%;
-}
+    th {
+        width: 40%;
+    }
 </style>
 <form>
     <table class="all">
@@ -37,39 +37,40 @@ th {
     <div class="ct"><input type="button" value="註冊" onclick="reg()"><input type="reset" value="重置"></div>
 </form>
 <script>
-function chk() {
-    let acc = $('#acc').val();
-    $.get('./api/chk.php', {
-        acc
-    }, (res) => {
-        if (parseInt(res) != 0 || acc == "admin") {
-            alert(`此帳號${acc}已被註冊，請重新輸入`);
-        } else {
-            alert(`此帳號${acc}可註冊`)
-        }
-    })
-}
+    function chk() {
+        let acc = $('#acc').val();
+        $.get('./api/chk.php', {
+            acc
+        }, (res) => {
+            if (parseInt(res) != 0 || acc == "admin") {
+                alert(`此帳號${acc}已被註冊，請重新輸入`);
+            } else {
+                alert(`此帳號${acc}可註冊`)
+            }
+        })
+    }
 
-function reg() {
-    let acc = $('#acc').val();
-    $.get('./api/chk.php', {
-        acc
-    }, (res) => {
-        if (parseInt(res) != 0 || acc == "admin") {
-            alert(`此帳號${acc}已被註冊，請重新輸入`);
-        } else {
-            let mem = {};
-            mem.acc = acc;
-            mem.pw = $('#pw').val();
-            mem.tel = $('#tel').val();
-            mem.addr = $('#addr').val();
-            mem.email = $('#email').val();
-            $.post('./api/save_mem.php', mem, () => {
-                alert("註冊完成，請登入")
-                location.href = "?do=login";
-            })
-        }
-    })
+    function reg() {
+        let acc = $('#acc').val();
+        $.get('./api/chk.php', {
+            acc
+        }, (res) => {
+            if (parseInt(res) != 0 || acc == "admin") {
+                alert(`此帳號${acc}已被註冊，請重新輸入`);
+            } else {
+                let mem = {};
+                mem.acc = acc;
+                mem.name = $('#name').val();
+                mem.pw = $('#pw').val();
+                mem.tel = $('#tel').val();
+                mem.addr = $('#addr').val();
+                mem.email = $('#email').val();
+                $.post('./api/save_mem.php', mem, () => {
+                    alert("註冊完成，請登入")
+                    location.href = "?do=login";
+                })
+            }
+        })
 
-}
+    }
 </script>
