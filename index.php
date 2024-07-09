@@ -51,20 +51,18 @@ include_once "./api/db.php";
         <marquee behavior="" direction="">年終特賣會開跑了 &nbsp; 情人節特惠活動</marquee>
         <div id="left" class="ct">
             <div style="min-height:400px;">
-                <div class="ww">
-                    <a href="?type=0">全部商品(<?= $Goods->count(['sh' => 1]) ?>)</a>
-                </div>
+                <div class="ww"><a href="?type=0">全部商品(<?= $Goods->count(['sh' => 1]) ?>)</a></div>
                 <?php
                 $bigs = $Type->all(['big_id' => 0]);
                 foreach ($bigs as $big) {
                 ?>
                     <div class="ww">
-                        <a href="?type=<?= $big['id'] ?>"><?= $big['name'] ?>(<?= $Goods->count(['sh' => 1, 'big' => $big['id']]) ?>)</a>
+                        <a href="?type=<?= $big['id'] ?>"><?= $big['name'] ?>(<?= $Goods->count(['big' => $big['id']]) ?>)</a>
                         <?php
                         $mids = $Type->all(['big_id' => $big['id']]);
                         foreach ($mids as $mid) {
                         ?>
-                            <div class="s"><a href="?type=<?= $mid['id'] ?>" style="background:lightgreen;"><?= $mid['name'] ?>(<?= $Goods->count(['mid' => $mid['id']]) ?>)</a>
+                            <div class="s"><a href="?type=<?= $mid['id'] ?>" style="background:lightgreen;color:white;position:relative;left:20px;z-index:10;"><?= $mid['name'] ?>(<?= $Goods->count(['mid' => $mid['id']]) ?>)</a>
                             </div>
                         <?php
                         }
@@ -73,6 +71,7 @@ include_once "./api/db.php";
                 <?php
                 }
                 ?>
+
             </div>
             <span>
                 <div>進站總人數</div>
